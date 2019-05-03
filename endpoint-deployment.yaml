@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoint-deployment
+  labels:
+    app: endpoint
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoint
+  template:
+    metadata:
+      labels:
+        app: endpoint
+    spec:
+      containers:
+      - name: endpoint
+        image: kaique5247/endpoint:0.2
+        ports:
+        - containerPort: 5000
